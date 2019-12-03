@@ -15,7 +15,7 @@ Then you can install this project .
 `$ cd graphql-kafka-subscriptions`
 `$ npm install`
 
-before running this project **make sure zookeeper service and kafka-server running on your local machine and create topic with name 'sampleTopic' **
+before running this project * make sure zookeeper service and kafka-server running on your local machine and create topic with name 'sampleTopic' *
 
 `$ npm run dev`
 

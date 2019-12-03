@@ -10,6 +10,8 @@ const pubsub = new KafkaPubSub({
 });
 
 const USER_CREATED = 'USER_CREATED';
+const USER_CREATED_ID = '1';
+const USER_UPDATED = 'USER_UPDATED';
 
 const resolvers = {
   Query: {
@@ -29,7 +31,7 @@ const resolvers = {
       const payload = {
         channel: USER_CREATED,
         userCreated: data,
-        channelId: data.id
+        channelId: USER_CREATED_ID
       };
       const result = await axios.post(`${baseURL}/user`, payload);
       // await pubsub.publish(payload);
@@ -40,6 +42,9 @@ const resolvers = {
   Subscription: {
     userCreated: {
       subscribe: () => pubsub.asyncIterator([USER_CREATED])
+    },
+    userUpdated: {
+      subscribe: () => pubsub.asyncIterator([USER_UPDATED])
     }
   }
 };

@@ -5,6 +5,7 @@ const typeDefs = gql`
     id: ID!
     firstname: String!
     lastname: String!
+    status: String!
   }
 
   type Query {
@@ -14,11 +15,12 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createUser(id: ID!, firstname: String!, lastname: String!): User!
+    createUser(firstname: String!, lastname: String!): User!
   }
 
   type Subscription {
-    userCreated: User
+    userCreated: User!
+    userUpdated: User!
   }
 `;
 
