@@ -1,12 +1,7 @@
 const express = require('express');
-const router = express.Router();
 const uuid = require('uuid/v4');
-
-const kafka = require('kafka-node');
-const kafkaTopic = 'sampleTopic';
-const Producer = kafka.Producer;
-const client = new kafka.KafkaClient();
-const producer = new Producer(client);
+const { kafkaTopic, producer } = require('../kafka');
+const router = express.Router();
 
 router.post('/transaction', async (req, res) => {
   req.body.transactionCreated.status = 'PENDING';

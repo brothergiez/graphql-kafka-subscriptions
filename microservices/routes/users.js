@@ -1,12 +1,8 @@
 const express = require('express');
-const router = express.Router();
 const uuid = require('uuid/v4');
+const { kafkaTopic, producer } = require('../kafka');
 
-const kafka = require('kafka-node');
-const kafkaTopic = 'sampleTopic';
-const Producer = kafka.Producer;
-const client = new kafka.KafkaClient();
-const producer = new Producer(client);
+const router = express.Router();
 
 const users = [
   {
