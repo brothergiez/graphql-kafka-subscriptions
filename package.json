@@ -8,7 +8,7 @@
     "ms": "nodemon ./microservices/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cristoph Adam Sugianto",
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.9.12",
