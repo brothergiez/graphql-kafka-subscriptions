@@ -18,11 +18,7 @@ Then you can install this project .
 before running this project * make sure zookeeper service and kafka-server running on your local machine and create topic with name 'sampleTopic' *
 
 `$ npm run dev`
-
-Then move to microservices directory
-`$ cd microservices`
-`$ npm install`
-`$ npm run dev`
+`$ npm run ms`
 
 
 Open your browser:

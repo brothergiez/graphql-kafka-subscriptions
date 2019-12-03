@@ -10,8 +10,11 @@ const pubsub = new KafkaPubSub({
 });
 
 const USER_CREATED = 'USER_CREATED';
-const USER_CREATED_ID = '1';
 const USER_UPDATED = 'USER_UPDATED';
+const USER_CREATED_ID = 'U1';
+const TRX_CREATED = 'TRX_CREATED';
+const TRX_UPDATED = 'TRX_UPDATED';
+const TRX_CREATED_ID = 'T1';
 
 const resolvers = {
   Query: {
@@ -33,7 +36,21 @@ const resolvers = {
         userCreated: data,
         channelId: USER_CREATED_ID
       };
+      // PRODUCE TO KAFKA TOPIC FROM MICROSERVICE
       const result = await axios.post(`${baseURL}/user`, payload);
+      // FOR DIRECT PUBLISHING / PRODUCE TO KAFKA TOPIC
+      // await pubsub.publish(payload);
+      return result.data;
+    },
+    createTransaction: async (_, data) => {
+      const payload = {
+        channel: TRX_CREATED,
+        transactionCreated: data,
+        channelId: TRX_CREATED_ID
+      };
+      // PRODUCE TO KAFKA TOPIC FROM MICROSERVICE
+      const result = await axios.post(`${baseURL}/transaction`, payload);
+      // FOR DIRECT PUBLISHING / PRODUCE TO KAFKA TOPIC
       // await pubsub.publish(payload);
       return result.data;
     }
@@ -45,6 +62,12 @@ const resolvers = {
     },
     userUpdated: {
       subscribe: () => pubsub.asyncIterator([USER_UPDATED])
+    },
+    transactionCreated: {
+      subscribe: () => pubsub.asyncIterator([TRX_CREATED])
+    },
+    transactionUpdated: {
+      subscribe: () => pubsub.asyncIterator([TRX_UPDATED])
     }
   }
 };

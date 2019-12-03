@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/index.js"
+    "dev": "nodemon ./src/index.js",
+    "ms": "nodemon ./microservices/index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "express": "^4.17.1",
     "graphql": "^14.5.8",
     "graphql-kafka-subscriptions": "^0.2.6",
+    "kafka-node": "^5.0.0",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
