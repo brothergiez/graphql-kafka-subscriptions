@@ -36,7 +36,7 @@ On the tab 1 :
 subscription {
   transactionCreated {
     id
-		merchant
+    merchant
     amount
     notes
     status
@@ -50,7 +50,7 @@ On the tab 2 :
 subscription {
   transactionUpdated {
     id
-		merchant
+    merchant
     amount
     notes
     status
