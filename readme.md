@@ -11,7 +11,7 @@ $ export CPPFLAGS=-I/usr/local/opt/openssl/include
 $ export LDFLAGS=-L/usr/local/opt/openssl/lib
 ```
 
-### Installing & Running Project
+### Installing Project
 Then you can install this project .
 
 ```
@@ -19,8 +19,9 @@ $ cd graphql-kafka-subscriptions
 $ npm install
 ```
 
-before running this project make sure zookeeper service and kafka-server running on your local machine and create topic with name 'sampleTopic'
+before running this project make sure zookeeper service and kafka-server running on your local machine and create topic with name 'sampleTopic'. For installing, running and create kafka topic, you can read this articles https://www.tutorialkart.com/apache-kafka-tutorial/
 
+### Running Project
 ```
 $ npm run dev
 $ npm run ms
@@ -82,7 +83,7 @@ curl --request PUT \
   --data '{
   "channel": "TRX_UPDATED",
   "transactionUpdated": {
-    "id": "9ab0c9d6-e9ad-45cf-8eb7-3b5e6c585a9c",
+    "id": "[PASTE-ID-FROM-LAST-TRANSACTION]",
     "merchant": "GOPAY2",
     "amount": 1000,
     "notes": "Gopay saya2",
