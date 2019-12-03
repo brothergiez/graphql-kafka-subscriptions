@@ -74,7 +74,7 @@ mutation{
 }
 ```
 
-For updating transaction execute this curl:
+For simulating update transaction execute this curl:
 ```shell
 curl --request PUT \
   --url http://localhost:3000/transaction \
@@ -86,7 +86,7 @@ curl --request PUT \
 		"merchant": "GOPAY2",
 		"amount": 1000,
 		"notes": "Gopay saya2",
-		"status": "FAILED"
+		"status": "SUCCESS"
 	},
 	"channelId": "T2"
 }'
