@@ -34,20 +34,60 @@ On the tab 1 :
 
 ```javascript
 subscription {
-  userCreated{
-    id,
-    firstname,
-    lastname
+  transactionCreated {
+    id
+		merchant
+    amount
+    notes
+    status
   }
 }
 ```
 
 On the tab 2 :
+
 ```javascript
-mutation{ createUser(id: "56789", firstname: "Mohammed", lastname: "Salah"){
-    id 
-    firstname 
-    lastname
+subscription {
+  transactionUpdated {
+    id
+		merchant
+    amount
+    notes
+    status
   }
 }
+```
+
+On the tab 3 :
+```javascript
+mutation{
+  createTransaction(
+    merchant: "GOPAY2",
+    notes: "Gopay saya2",
+    amount: 1000
+  ){
+    id
+    merchant
+    amount
+    status
+  }
+}
+```
+
+For updating transaction execute this curl:
+```shell
+curl --request PUT \
+  --url http://localhost:3000/transaction \
+  --header 'content-type: application/json' \
+  --data '{
+  "channel": "TRX_UPDATED",
+	"transactionUpdated": {
+		"id": "9ab0c9d6-e9ad-45cf-8eb7-3b5e6c585a9c",
+		"merchant": "GOPAY2",
+		"amount": 1000,
+		"notes": "Gopay saya2",
+		"status": "FAILED"
+	},
+	"channelId": "T2"
+}'
 ```
