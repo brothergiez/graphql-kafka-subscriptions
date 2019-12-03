@@ -81,13 +81,13 @@ curl --request PUT \
   --header 'content-type: application/json' \
   --data '{
   "channel": "TRX_UPDATED",
-	"transactionUpdated": {
-		"id": "9ab0c9d6-e9ad-45cf-8eb7-3b5e6c585a9c",
-		"merchant": "GOPAY2",
-		"amount": 1000,
-		"notes": "Gopay saya2",
-		"status": "SUCCESS"
-	},
-	"channelId": "T2"
+  "transactionUpdated": {
+    "id": "9ab0c9d6-e9ad-45cf-8eb7-3b5e6c585a9c",
+    "merchant": "GOPAY2",
+    "amount": 1000,
+    "notes": "Gopay saya2",
+    "status": "SUCCESS"
+  },
+  "channelId": "T2"
 }'
 ```
