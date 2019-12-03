@@ -28,8 +28,9 @@ $ npm run ms
 
 
 Open your browser:
+http://localhost:3030/graphql
+
 On the tab 1 :
-url: http://localhost:3030/graphql
 
 ```javascript
 subscription {
@@ -42,12 +43,11 @@ subscription {
 ```
 
 On the tab 2 :
-url: http://localhost:3030/graphql
 ```javascript
 mutation{ createUser(id: "56789", firstname: "Mohammed", lastname: "Salah"){
     id 
     firstname 
     lastname
-    }
+  }
 }
 ```
