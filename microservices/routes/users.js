@@ -35,6 +35,7 @@ router.post('/user', async (req, res) => {
   const payloads = [{ topic: kafkaTopic, messages, partition: 0 }];
   producer.send(payloads, function(err, data) {
     console.log(data);
+    if(err) throw new Error(err.message);
   });
   console.log(req.body.userCreated);
   res.send(req.body.userCreated);
@@ -44,6 +45,7 @@ router.put('/user', async (req, res) => {
   const messages = JSON.stringify(req.body);
   const payloads = [{ topic: kafkaTopic, messages, partition: 0 }];
   producer.send(payloads, function(err, data) {
+    if(err) throw new Error(err.message);
     console.log(data);
   });
   console.log(req.body.userUpdated);

@@ -9,6 +9,7 @@ router.post('/transaction', async (req, res) => {
   const messages = JSON.stringify(req.body);
   const payloads = [{ topic: kafkaTopic, messages, partition: 0 }];
   producer.send(payloads, function(err, data) {
+    if(err) throw new Error(err.message);
     console.log(data);
   });
   console.log(req.body.transactionCreated);
@@ -19,6 +20,7 @@ router.put('/transaction', async (req, res) => {
   const messages = JSON.stringify(req.body);
   const payloads = [{ topic: kafkaTopic, messages, partition: 0 }];
   producer.send(payloads, function(err, data) {
+    if(err) throw new Error(err.message);
     console.log(data);
   });
   console.log(req.body.transactionCreated);
